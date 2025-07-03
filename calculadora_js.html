@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora em JS</title>
+
+    <script>
+        function calcular(operacao) {
+           
+            var num1 = Number(document.getElementById('num1').value);
+            var num2 = Number(document.getElementById('num2').value);
+
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Por favor, digite números válidos.");
+                return;
+            }
+
+            var resultado; 
+
+           
+            switch (operacao) {
+                case '+':
+                    resultado = num1 + num2;
+                    break;
+                case '-':
+                    resultado = num1 - num2;
+                    break;
+                case '*':
+                    resultado = num1 * num2;
+                    break;
+                case '/':
+                   
+                    if (num2 === 0) {
+                        alert("Não é possível dividir por zero!");
+                        return; 
+                    }
+                    resultado = num1 / num2;
+                    break;
+                default:
+                 
+                    resultado = 'Operação inválida';
+            }
+
+          
+            document.getElementById('demo').innerHTML = resultado;
+        }
+    </script>
+</head>
+<body>
+
+    <form style="text-align: center;">
+      
+        <label for="num1">Número 1:</label><br>
+        <input type="number" placeholder="Digite um número" id="num1"><br><br>
+        
+        <label for="num2">Número 2:</label><br>
+        <input type="number" placeholder="Digite outro número" id="num2"><br><br>
+
+        <p>Selecione a operação:</p>
+
+        <button type="button" onclick="calcular('+')">+</button>
+        <button type="button" onclick="calcular('-')">-</button>
+        <button type="button" onclick="calcular('*')">*</button>
+        <button type="button" onclick="calcular('/')">/</button>
+
+        <p>Resultado:</p>
+        <p id="demo">...</p>
+    </form>
+</body>
+</html>
