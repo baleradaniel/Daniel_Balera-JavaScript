@@ -5,14 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Fornecedor</title>
+    <script src="validacao.js"></script>
+    <link rel="stylesheet" type="text/CSS" href="estilo.css" media="all">
 </head>
 
+<ul>
+
+    <li><a href="Menu.html">Inicio</a>
+    <li><a href="#">Novidade</a>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
+        <div class="dropdown-content">
+            <a href="Formulario_produto.html">Novo jogo</a>
+            <a href="Formulario_cliente.html">Novo cliente</a>
+            <a href="formulario_fornecedor.html">Novo fornecedor</a>
+        </div>
+    </li>
+</ul>
 <body>
     <center>
         <table align="center">
             <form method="post" action="/cgi-bin/post-query">
 
-                <img src="image/logo.png" height="100" width="100"><br>
+                <img src="logo.png" height="100" width="100"><br>
 
                 <tr align="left">
                     <h1>Cadastro de Fornecedor</h1>
@@ -26,7 +41,7 @@
 
                 <tr align="left">
                     <td><label for="cnpj_fornecedor">CNPJ:</label></td>
-                    <td><input type="text" id="cnpj_fornecedor" name="cnpj_fornecedor" required></td>
+                    <td><input type="text" id="cnpj_fornecedor" name="cnpj_fornecedor" required onkeypress="mascaras(this,formatarCNPJ)"></td>
                 </tr>
 
                 <tr align="left">
